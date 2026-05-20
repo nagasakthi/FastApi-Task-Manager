@@ -1,4 +1,4 @@
-# 🚀 FastAPI Task Manager
+#  FastAPI Task Manager
 
 A full-stack **Task Manager Web Application** built using **FastAPI**, **JWT Authentication**, **SQLite**, and a frontend developed with **HTML, CSS, and JavaScript**.
 
@@ -13,39 +13,39 @@ This project was developed as an internship assignment focusing on:
 
 ---
 
-# ✨ Features
+# Features
 
-## 🔐 Authentication
+## Authentication
 
-✅ User Registration  
+- User Registration  
 
-✅ User Login  
+- User Login  
 
-✅ JWT Authentication  
+- JWT Authentication  
 
-✅ Password Hashing using bcrypt  
+- Password Hashing using bcrypt  
 
 ---
 
-## 📋 Task Management
+##  Task Management
 
 Authenticated users can:
 
-✅ Create Tasks  
+- Create Tasks  
 
-✅ View Tasks  
+- View Tasks  
 
-✅ View Specific Task  
+- View Specific Task  
 
-✅ Mark Tasks as Completed  
+- Mark Tasks as Completed  
 
-✅ Delete Tasks  
+- Delete Tasks  
 
 Users can access **only their own tasks**.
 
 ---
 
-## ⚡ Additional Features
+##  Additional Features
 
 ### Pagination Support
 
@@ -65,15 +65,15 @@ GET /tasks?completed=true
 
 Additional features:
 
-✅ Docker Support  
+- Docker Support  
 
-✅ Unit Testing using pytest  
+- Unit Testing using pytest  
 
-✅ Responsive Frontend UI  
+- Responsive Frontend UI  
 
 ---
 
-# 🛠 Tech Stack
+#  Tech Stack
 
 ## Backend
 
@@ -99,7 +99,7 @@ Additional features:
 
 ---
 
-# 📂 Project Structure
+#  Project Structure
 
 ```text
 FastAPI-Task-Manager/
@@ -144,7 +144,7 @@ FastAPI-Task-Manager/
 
 ---
 
-# ⚙ Environment Variables
+#  Environment Variables
 
 Create:
 
@@ -174,7 +174,7 @@ SECRET_KEY=your_secret_key_here
 
 ---
 
-# ▶ Run Locally
+#  Run Locally
 
 ## Backend
 
@@ -226,7 +226,7 @@ http://localhost:5500/login.html
 
 ---
 
-# 🐳 Docker
+#  Docker
 
 Build Docker image:
 
@@ -268,7 +268,7 @@ Docker verified successfully.
 
 ---
 
-# 🧪 Testing
+#  Testing
 
 Run tests:
 
@@ -284,7 +284,7 @@ Expected output:
 
 ---
 
-# 📡 API Endpoints
+#  API Endpoints
 
 ## Authentication
 
@@ -310,7 +310,7 @@ DELETE /tasks/{id}
 
 ---
 
-# 📸 Screenshots
+# Screenshots
 
 ## Authentication
 
@@ -330,7 +330,7 @@ DELETE /tasks/{id}
 
 ---
 
-# 🌐 Deployment
+# Deployment
 
 Backend Deployment:
 
@@ -348,15 +348,8 @@ https://your-render-url.onrender.com/docs
 
 ---
 
-# 🔗 GitHub Repository
 
-Repository:
-
-https://github.com/nagasakthi/FastApi-Task-Manager
-
----
-
-# 👨‍💻 Author
+# Author
 
 **Nagarajan S**
 
