@@ -2,23 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-      <div class="container">
+    <div class="container">
         <h1>Task Dashboard</h1>
-        <button onclick="logout()">Logout</button>
-        <input id="task_title" placeholder="New task">
-        <button onclick="createTask()">Add Task</button>
-        <div id="tasks"></div>
-      </div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+
+        <h2>Create Task</h2>
+
+        <input id="task_title" placeholder="Enter task title">
+
+        <button onclick="createTask()">Create Task</button>
+
+        <h2>View Tasks</h2>
+        <div id="tasks">
+        </div>
+
+    </div>
+
 
 <script src="app.js"></script>
+
 <script>
+
 loadTasks()
+
 </script>
 
-
 </body>
+
 </html>

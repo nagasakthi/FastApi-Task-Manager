@@ -1,29 +1,12 @@
 let token = localStorage.getItem(
-    "token"
-);
+"token"
+)
 
 
 
 async function register(){
 
-try{
-
-const response =
-await fetch(
-
-"http://127.0.0.1:8000/register",
-
-{
-
-method:"POST",
-
-headers:{
-"Content-Type":
-"application/json"
-},
-
-body:
-JSON.stringify({
+const data={
 
 username:
 document.getElementById(
@@ -40,14 +23,28 @@ document.getElementById(
 "reg_password"
 ).value
 
-})
+}
+
+const response =
+await fetch(
+
+"http://127.0.0.1:8000/register",
+
+{
+
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:
+JSON.stringify(
+data
+)
 
 })
-
-const data =
-await response.json()
-
-console.log(data)
 
 if(response.ok){
 
@@ -55,20 +52,11 @@ alert(
 "Registration Successful"
 )
 
+window.location=
+"login.html"
+
 }
 else{
-
-alert(
-data.detail
-)
-
-}
-
-}
-
-catch(error){
-
-console.log(error)
 
 alert(
 "Registration Failed"
@@ -81,12 +69,9 @@ alert(
 
 
 
-
 async function login(){
 
-try{
-
-const response =
+const response=
 await fetch(
 
 "http://127.0.0.1:8000/login",
@@ -117,10 +102,10 @@ document.getElementById(
 
 })
 
-const data =
+const data=
 await response.json()
 
-token =
+token=
 data.access_token
 
 localStorage.setItem(
@@ -131,35 +116,17 @@ token
 
 )
 
-alert(
-"Login Successful"
-)
-
-window.location.href =
-
+window.location=
 "dashboard.html"
 
 }
-
-catch(error){
-
-console.log(error)
-
-alert(
-"Login Failed"
-)
-
-}
-
-}
-
 
 
 
 
 async function createTask(){
 
-const title =
+const title=
 document.getElementById(
 "task_title"
 ).value
@@ -168,7 +135,7 @@ document.getElementById(
 if(!title){
 
 alert(
-"Enter task title"
+"Enter task"
 )
 
 return
@@ -187,9 +154,11 @@ method:"POST",
 headers:{
 
 Authorization:
+
 `Bearer ${token}`,
 
 "Content-Type":
+
 "application/json"
 
 },
@@ -203,7 +172,6 @@ title:title
 
 })
 
-
 document.getElementById(
 "task_title"
 ).value=""
@@ -215,16 +183,9 @@ loadTasks()
 
 
 
-
 async function loadTasks(){
 
-if(!token){
-
-return
-
-}
-
-const response =
+const response=
 await fetch(
 
 "http://127.0.0.1:8000/tasks",
@@ -234,57 +195,56 @@ await fetch(
 headers:{
 
 Authorization:
+
 `Bearer ${token}`
 
 }
 
 })
 
-const tasks =
+const data=
 await response.json()
+
+const tasks=
+data.tasks || data
+
 
 let html=""
 
+
 tasks.forEach(task=>{
 
-html += `
+html+=`
 
 <div class="task">
 
-<div class="task-content">
-
-<div class="task-title">
+<h3>
 
 ${task.title}
 
-</div>
+</h3>
 
-<div class="task-status">
+<p>
 
 Status:
 
-${
-task.completed
+${task.completed
 
 ?
 
-"Completed"
+"Completed ✅"
 
 :
 
-"Pending"
+"Pending ⏳"
 
 }
 
-</div>
+</p>
 
-</div>
-
-
-<div class="task-buttons">
+<div class="btn-group">
 
 <button
-
 class="complete-btn"
 
 onclick=
@@ -294,13 +254,11 @@ ${task.id}
 
 >
 
-Complete
+Mark Completed
 
 </button>
 
-
 <button
-
 class="delete-btn"
 
 onclick=
@@ -324,11 +282,10 @@ Delete
 
 document.getElementById(
 "tasks"
-).innerHTML =
+).innerHTML=
 html
 
 }
-
 
 
 
@@ -348,9 +305,11 @@ method:"PUT",
 headers:{
 
 Authorization:
+
 `Bearer ${token}`,
 
 "Content-Type":
+
 "application/json"
 
 },
@@ -371,7 +330,6 @@ loadTasks()
 
 
 
-
 async function deleteTask(
 id
 ){
@@ -387,6 +345,7 @@ method:"DELETE",
 headers:{
 
 Authorization:
+
 `Bearer ${token}`
 
 }
@@ -399,25 +358,8 @@ loadTasks()
 
 
 
-
-
-function logout(){
-
-localStorage.removeItem(
-"token"
-)
-
-window.location.href =
-
-"login.html"
-
-}
-
-
-
-
-
-window.onload = function(){
+window.onload=
+function(){
 
 if(
 
@@ -431,5 +373,15 @@ window.location.pathname
 loadTasks()
 
 }
+
+}
+function logout(){
+
+localStorage.removeItem(
+"token"
+)
+
+window.location=
+"login.html"
 
 }
