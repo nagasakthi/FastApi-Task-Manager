@@ -1,108 +1,367 @@
-# FastAPI Task Manager
+# 🚀 FastAPI Task Manager
 
-Task Manager Web Application built using FastAPI with JWT Authentication and SQLite database.
+A full-stack **Task Manager Web Application** built using **FastAPI**, **JWT Authentication**, **SQLite**, and a frontend developed with **HTML, CSS, and JavaScript**.
 
-## Features
+This project was developed as an internship assignment focusing on:
 
-### Authentication
-- User Registration
-- User Login
-- JWT Authentication
-- Password Hashing (bcrypt)
-
-### Task Management
-- Create Task
-- View Tasks
-- View Single Task
-- Update Task Status
-- Delete Task
-- User-specific task access
-
-### Extra Features
-- Pagination
-- Task filtering
-- Docker support
+- Backend development
+- Authentication & Authorization
+- Database integration
 - Frontend integration
-- Unit testing with pytest
+- Docker containerization
+- Testing
 
-## Tech Stack
+---
 
-Backend:
+# ✨ Features
+
+## 🔐 Authentication
+
+✅ User Registration  
+
+✅ User Login  
+
+✅ JWT Authentication  
+
+✅ Password Hashing using bcrypt  
+
+---
+
+## 📋 Task Management
+
+Authenticated users can:
+
+✅ Create Tasks  
+
+✅ View Tasks  
+
+✅ View Specific Task  
+
+✅ Mark Tasks as Completed  
+
+✅ Delete Tasks  
+
+Users can access **only their own tasks**.
+
+---
+
+## ⚡ Additional Features
+
+### Pagination Support
+
+Example:
+
+```http
+GET /tasks?page=1&limit=5
+```
+
+### Task Filtering
+
+Example:
+
+```http
+GET /tasks?completed=true
+```
+
+Additional features:
+
+✅ Docker Support  
+
+✅ Unit Testing using pytest  
+
+✅ Responsive Frontend UI  
+
+---
+
+# 🛠 Tech Stack
+
+## Backend
+
 - FastAPI
 - SQLAlchemy
 - SQLite
-- JWT
+- JWT Authentication
 - Passlib bcrypt
+- Pydantic
+- Pytest
 
-Frontend:
+## Frontend
+
 - HTML
 - CSS
 - JavaScript
 
-## Project Structure
+## Deployment
+
+- Docker
+- Render
+- Vercel
+
+---
+
+# 📂 Project Structure
 
 ```text
-backend/
- ├── app/
- ├── tests/
- ├── Dockerfile
- ├── requirements.txt
+FastAPI-Task-Manager/
 
-frontend/
- ├── login.html
- ├── dashboard.html
- ├── app.js
- ├── style.css
+├── backend/
+│
+│   ├── app/
+│   │
+│   ├── models/
+│   ├── routes/
+│   ├── schemas/
+│   ├── services/
+│   ├── utils/
+│   │
+│   ├── database.py
+│   ├── dependencies.py
+│   └── main.py
+│
+│
+├── tests/
+│   ├── conftest.py
+│   └── test_auth.py
+│
+├── Dockerfile
+├── requirements.txt
+└── .env.example
+│
+├── frontend/
+│   ├── register.html
+│   ├── login.html
+│   ├── dashboard.html
+│   ├── app.js
+│   └── style.css
+│
+├── screenshots/
+│   ├── auth.png
+│   ├── dashboard.png
+│   └── swagger.png
+│
+└── README.md
 ```
 
-## Run Locally
+---
 
-Backend:
+# ⚙ Environment Variables
+
+Create:
+
+```text
+backend/.env
+```
+
+Example:
+
+```env
+DATABASE_URL=sqlite:///task.db
+
+SECRET_KEY=your_secret_key_here
+```
+
+Example template:
+
+```text
+backend/.env.example
+```
+
+```env
+DATABASE_URL=sqlite:///task.db
+
+SECRET_KEY=your_secret_key_here
+```
+
+---
+
+# ▶ Run Locally
+
+## Backend
+
+Move to backend:
 
 ```bash
 cd backend
+```
 
+Run server:
+
+```bash
 uvicorn app.main:app --reload
 ```
 
-Frontend:
+Backend API:
+
+```text
+http://127.0.0.1:8000
+```
+
+Swagger API Docs:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+---
+
+## Frontend
+
+Move to frontend:
 
 ```bash
 cd frontend
-
-python -m http.server 5500
-```
-
-Open:
-
-Backend Docs:
-
-http://127.0.0.1:8000/docs
-
-Frontend:
-
-http://localhost:5500/login.html
-
-## Docker
-
-Build:
-
-```bash
-docker build -t taskmanager .
 ```
 
 Run:
 
 ```bash
-docker run -p 8000:8000 taskmanager
+python -m http.server 5500
 ```
 
-## Testing
+Open:
+
+```text
+http://localhost:5500/login.html
+```
+
+---
+
+# 🐳 Docker
+
+Build Docker image:
+
+```bash
+docker build -t taskmanager .
+```
+
+Run container:
+
+```bash
+docker run -d -p 8000:8000 --name taskapp taskmanager
+```
+
+Check logs:
+
+```bash
+docker logs taskapp
+```
+
+Check running containers:
+
+```bash
+docker ps
+```
+
+Stop container:
+
+```bash
+docker stop taskapp
+```
+
+Remove container:
+
+```bash
+docker rm taskapp
+```
+
+Docker verified successfully.
+
+---
+
+# 🧪 Testing
+
+Run tests:
 
 ```bash
 pytest
 ```
 
-## GitHub Repository
+Expected output:
+
+```text
+1 passed
+```
+
+---
+
+# 📡 API Endpoints
+
+## Authentication
+
+```http
+POST /register
+
+POST /login
+```
+
+## Tasks
+
+```http
+POST /tasks
+
+GET /tasks
+
+GET /tasks/{id}
+
+PUT /tasks/{id}
+
+DELETE /tasks/{id}
+```
+
+---
+
+# 📸 Screenshots
+
+## Authentication
+
+![Authentication](screenshots/auth.png)
+
+---
+
+## Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+---
+
+## Swagger API
+
+![Swagger](screenshots/swagger.png)
+
+---
+
+# 🌐 Deployment
+
+Backend Deployment:
+
+Render
+
+Frontend Deployment:
+
+Vercel
+
+API Docs:
+
+```text
+https://your-render-url.onrender.com/docs
+```
+
+---
+
+# 🔗 GitHub Repository
+
+Repository:
 
 https://github.com/nagasakthi/FastApi-Task-Manager
+
+---
+
+# 👨‍💻 Author
+
+**Nagarajan S**
+
+MCA Graduate | Python Developer
+
+GitHub:
+
+https://github.com/nagasakthi
