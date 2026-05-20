@@ -1,0 +1,22 @@
+# Virtual environment
+venv/
+backend/venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Database
+task.db
+backend/task.db
+
+# Environment files
+.env
+backend/.env
+
+# Pytest
+.pytest_cache/
+
+# IDE
+.idea/
+.vscode/
