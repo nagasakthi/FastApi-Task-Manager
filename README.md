@@ -336,13 +336,17 @@ Backend Deployment:
 
 Render
 
+```text
 https://fastapi-task-manager-jhuh.onrender.com
+```
 
 Frontend Deployment:
 
 Vercel
 
+```text
 https://fast-api-task-manager-beta.vercel.app
+```
 
 API Docs:
 
