@@ -342,6 +342,7 @@ Frontend Deployment:
 
 Vercel
 
+https://fast-api-task-manager-beta.vercel.app
 
 API Docs:
 
