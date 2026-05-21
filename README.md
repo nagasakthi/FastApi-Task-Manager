@@ -336,6 +336,8 @@ Backend Deployment:
 
 Render
 
+https://fastapi-task-manager-jhuh.onrender.com
+
 Frontend Deployment:
 
 Vercel
@@ -343,7 +345,7 @@ Vercel
 API Docs:
 
 ```text
-https://your-render-url.onrender.com/docs
+https://fastapi-task-manager-jhuh.onrender.com/docs
 ```
 
 ---
